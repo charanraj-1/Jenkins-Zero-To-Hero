@@ -12,7 +12,7 @@ pipeline {
            steps {
                                // Will get the code from this git repo location to build images
                             //Now our jenkins node will point to this repo.
-                git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
+                git credentialsId: '23232-efw3e-e312-df2dd-12312-dsd87', 
                 url: 'https://github.com/charanraj-1/Jenkins-Zero-To-Hero/python-jenkins-argocd-k8s',
                 branch: 'main'
            }
@@ -45,7 +45,7 @@ pipeline {
                      // Now checking out this repo of git for accessing code or to update the files.
                     // we are giving access to Jenkins node this repo
             steps {
-                git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
+                git credentialsId: '23232-efw3e-e312-df2dd-12312-dsd87', 
                 url: 'https://github.com/charanraj-1/cicd-manifests-repo.git',
                 branch: 'main'
             }
@@ -54,7 +54,7 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: '23232-efw3e-e312-df2dd-12312-dsd87', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh '''
                         cat deploy.yaml
                         sed -i '' "s/0/${BUILD_NUMBER}/g" deploy.yaml
