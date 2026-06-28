@@ -21,6 +21,7 @@ pipeline {
         stage('Build Docker'){
             steps{
                 script{
+                    //Build docker image with docker hub directory and specific name tag.
                     sh '''
                     echo 'Buid Docker Image'
                     docker build -t charanraj1/mybuild-images:todoapp${BUILD_NUMBER} .
